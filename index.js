@@ -3,6 +3,7 @@ function menu() {
   const modulos = document.querySelectorAll('.btnM'); // Botões de módulos
   const menu = document.querySelector('.menu');
   const overlay = document.querySelector('.overlay');
+  const close = document.querySelector('.close-conteiner')
 
   let cursoSelecionado = null;
 
@@ -10,11 +11,11 @@ function menu() {
   cursos.forEach(btn => {
     btn.addEventListener("click", (e) => {
       e.stopPropagation();
-      cursoSelecionado = btn.value; // pega o valor do botão do curso
+      cursoSelecionado = btn.value; 
 
       let periodo = null;
 
-    // Verifica em qual janela o botão está
+
     if (btn.closest('.janela1')) {
       periodo = 'manha';
     } else if (btn.closest('.janela2')) {
@@ -22,7 +23,7 @@ function menu() {
     } else if (btn.closest('.janela3')) {
       periodo = 'noite';
     }
-      sessionStorage.setItem("curso", (cursoSelecionado)); // salva no localStorage
+      sessionStorage.setItem("curso", (cursoSelecionado)); 
       sessionStorage.setItem("periodo", periodo);
 
       // Mostra o menu
@@ -34,9 +35,9 @@ function menu() {
   // Quando clica em um módulo
   modulos.forEach(btn => {
     btn.addEventListener("click", () => {
-      const moduloSelecionado = btn.value; // pega o valor do botão do módulo
+      const moduloSelecionado = btn.value; 
       const periodoSelecionado = sessionStorage.getItem("periodo");
-      sessionStorage.setItem("modulo",(moduloSelecionado)); // salva no localStorage
+      sessionStorage.setItem("modulo",(moduloSelecionado)); 
 
       if (periodoSelecionado === "manha") {
       window.location.href = "./pages/manha.html";
@@ -48,7 +49,12 @@ function menu() {
     });
   });
 
-  // Fecha menu ao clicar fora
+  // Fecha menu ao clicar fora ou no botão de fechar
+
+  close.addEventListener('click', ()=>{
+    menu.classList.remove("show")
+    overlay.classList.remove("show")
+  })
   document.addEventListener("click", () => {
     menu.classList.remove("show");
     overlay.classList.remove("show");
