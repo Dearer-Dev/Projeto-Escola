@@ -37,7 +37,9 @@ function menu() {
     btn.addEventListener("click", () => {
       const moduloSelecionado = btn.value; 
       const periodoSelecionado = sessionStorage.getItem("periodo");
-      sessionStorage.setItem("modulo",(moduloSelecionado)); 
+      sessionStorage.setItem("modulo",(moduloSelecionado));
+      menu.classList.remove("show");
+      overlay.classList.remove("show"); 
 
       if (periodoSelecionado === "manha") {
       window.location.href = "./pages/manha.html";

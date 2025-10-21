@@ -19,14 +19,19 @@ blocos.forEach((bloco, i) => {
   }
 });
 
-// Preencher a versão mobile
+// Preencher a versão mobile (horizontalmente, como na tabela)
 const dias = document.querySelectorAll(".dia");
+let index = 0;
 
-dias.forEach((dia, diaIndex) => {
-  const aulas = dia.querySelectorAll(".aula:not(.intervalo)");
-  aulas.forEach((aula, aulaIndex) => {
+for (let i = 0; i < 7; i++) { // 7 horários por dia
+  for (let j = 0; j < 5; j++) { // 5 dias da semana
+    const dia = dias[j];
+    const aulas = dia.querySelectorAll(".aula");
+    const aula = aulas[i]; // pega a aula do horário i no dia j
+
+    if (!aula || aula.classList.contains("intervalo")) continue;
+
     const materiaSpan = aula.querySelector(".materia");
-    const index = aulaIndex + diaIndex * 6; // 6 aulas por dia
     const materia = modulo.materia[index];
     const professor = modulo.prof[index];
 
@@ -35,9 +40,12 @@ dias.forEach((dia, diaIndex) => {
     } else {
       materiaSpan.textContent = "—";
     }
-  });
-});
 
+    index++;
+  }
+}
+
+// Botão de voltar
 const voltarB = document.querySelector('.voltar');
 
 function voltarPag() {
