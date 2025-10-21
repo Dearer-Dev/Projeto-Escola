@@ -1,0 +1,159 @@
+/* RESET E BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #f6f7fb;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+}
+
+/* CABEÇALHO */
+.cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: #d9d9d9;
+  border-bottom: 0.25vh solid black;
+  height: 90px;
+  width: 100%;
+}
+
+.voltar {
+  position: absolute;
+  left: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.voltar:hover {
+  transform: scale(1.1);
+}
+
+.voltar img {
+  width: 50px;
+  height: 50px;
+}
+
+.logoCabecalho {
+  width: 800px;
+  height: 100px;
+}
+
+/* CONTEÚDO PRINCIPAL */
+.conteudo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* APRESENTAÇÃO */
+.apresentacao {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  text-align: center;
+  margin-top: 30px;
+}
+
+.apresentacao h1 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.apresentacao p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.8;
+}
+
+/* DEVS */
+.devs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.dev-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  overflow: hidden;
+  width: 280px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dev-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.dev-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.desc {
+  padding: 20px;
+  text-align: left;
+}
+
+.desc h2 {
+  font-size: 1.3rem;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.desc p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+
+/* RODAPÉ */
+.rodape {
+    background-color: black;
+    color: white;
+    width: 100%;
+    text-align: center;
+    font-size: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px 0;
+    margin-top: 40px;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+  .apresentacao {
+    font-size: 1rem;
+    padding: 20px;
+  }
+
+  .dev-card {
+    width: 90%;
+  }
+
+  .logoCabecalho {
+    width: 60%;
+  }
+}
